@@ -2,12 +2,12 @@
 
 namespace SprykerFeature\Client\Glossary;
 
-use SprykerEngine\Client\Kernel\AbstractStub;
+use SprykerEngine\Client\Kernel\AbstractClient;
 
 /**
  * @method GlossaryDependencyContainer getDependencyContainer()
  */
-class GlossaryStub extends AbstractStub
+class GlossaryClient extends AbstractClient
 {
     /**
      * @param string $localeName
