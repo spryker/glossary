@@ -1,6 +1,6 @@
 <?php
 
-namespace SprykerFeature\Client\Glossary;
+namespace SprykerFeature\Client\Glossary\Service;
 
 use SprykerFeature\Shared\Library\Storage\Adapter\KeyValue\ReadInterface;
 use SprykerFeature\Shared\FrontendExporter\Code\KeyBuilder\KeyBuilderInterface;

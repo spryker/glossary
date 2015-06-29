@@ -1,12 +1,12 @@
 <?php
 
-namespace SprykerFeature\Client\Glossary;
+namespace SprykerFeature\Client\Glossary\Service;
 
 use Generated\Client\Ide\FactoryAutoCompletion\Glossary;
 use SprykerFeature\Client\KvStorage\Service\KvStorageClientInterface;
 use SprykerFeature\Shared\FrontendExporter\Code\KeyBuilder\KeyBuilderInterface;
 use SprykerFeature\Shared\Library\Storage\Adapter\KeyValue\ReadInterface;
-use SprykerEngine\Client\Kernel\AbstractDependencyContainer;
+use SprykerEngine\Client\Kernel\Service\AbstractDependencyContainer;
 
 /**
  * @method Glossary getFactory()

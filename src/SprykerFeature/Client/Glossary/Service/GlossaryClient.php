@@ -1,8 +1,8 @@
 <?php
 
-namespace SprykerFeature\Client\Glossary;
+namespace SprykerFeature\Client\Glossary\Service;
 
-use SprykerEngine\Client\Kernel\AbstractClient;
+use SprykerEngine\Client\Kernel\Service\AbstractClient;
 
 /**
  * @method GlossaryDependencyContainer getDependencyContainer()
