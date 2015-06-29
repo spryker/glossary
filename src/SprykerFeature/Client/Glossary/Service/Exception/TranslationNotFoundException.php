@@ -1,7 +1,9 @@
 <?php
-namespace SprykerFeature\Client\Glossary\Exception;
+/**
+ * (c) Spryker Systems GmbH copyright protected
+ */
 
-use RuntimeException;
+namespace SprykerFeature\Client\Glossary\Service\Exception;
 
 class TranslationNotFoundException extends \RuntimeException
 {
