@@ -5,10 +5,10 @@
 
 namespace SprykerFeature\Zed\Glossary\Persistence\Propel;
 
-use SprykerFeature\Zed\Glossary\Persistence\Propel\Base\SpyGlossaryTranslationQuery as BaseSpyGlossaryTranslationQuery;
+use Orm\Zed\Glossary\Persistence\Base\SpyGlossaryTranslation as BaseSpyGlossaryTranslation;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'spy_glossary_translation' table.
+ * Skeleton subclass for representing a row from the 'spy_glossary_translation' table.
  *
  *
  *
@@ -17,7 +17,7 @@ use SprykerFeature\Zed\Glossary\Persistence\Propel\Base\SpyGlossaryTranslationQu
  * long as it does not already exist in the output directory.
  *
  */
-class SpyGlossaryTranslationQuery extends BaseSpyGlossaryTranslationQuery
+abstract class AbstractSpyGlossaryTranslation extends BaseSpyGlossaryTranslation
 {
 
-} // SpyGlossaryTranslationQuery
+}
