@@ -3,16 +3,16 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Glossary\Service;
+namespace SprykerFeature\Client\Glossary;
 
-use SprykerFeature\Client\Glossary\Service\KeyBuilder\GlossaryKeyBuilder;
-use SprykerFeature\Client\Glossary\Service\Storage\GlossaryStorage;
-use SprykerEngine\Client\Kernel\Service\AbstractServiceDependencyContainer;
+use SprykerFeature\Client\Glossary\KeyBuilder\GlossaryKeyBuilder;
+use SprykerFeature\Client\Glossary\Storage\GlossaryStorage;
+use SprykerEngine\Client\Kernel\AbstractDependencyContainer;
 use SprykerFeature\Client\Glossary\GlossaryDependencyProvider;
-use SprykerFeature\Client\Storage\Service\StorageClientInterface;
+use SprykerFeature\Client\Storage\StorageClientInterface;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
 
-class GlossaryDependencyContainer extends AbstractServiceDependencyContainer
+class GlossaryDependencyContainer extends AbstractDependencyContainer
 {
 
     /**
