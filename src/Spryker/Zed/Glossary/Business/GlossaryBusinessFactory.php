@@ -21,7 +21,7 @@ use Spryker\Zed\Glossary\Persistence\GlossaryQueryContainerInterface;
  * @method GlossaryConfig getConfig()
  * @method GlossaryQueryContainerInterface getQueryContainer()
  */
-class GlossaryDependencyContainer extends AbstractBusinessFactory
+class GlossaryBusinessFactory extends AbstractBusinessFactory
 {
 
     /**

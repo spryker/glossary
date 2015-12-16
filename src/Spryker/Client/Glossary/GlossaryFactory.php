@@ -12,7 +12,7 @@ use Spryker\Client\Kernel\AbstractFactory;
 use Spryker\Client\Storage\StorageClientInterface;
 use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
 
-class GlossaryDependencyContainer extends AbstractFactory
+class GlossaryFactory extends AbstractFactory
 {
 
     /**
