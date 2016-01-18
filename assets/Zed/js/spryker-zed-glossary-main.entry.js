@@ -1,6 +1,6 @@
 /**
  * 
- * Discount main entry point
+ * Glossary main entry point
  * @copyright: Spryker Systems GmbH
  *
  */
