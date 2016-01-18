@@ -1,6 +1,6 @@
 /**
  *
- * Discount dependencies
+ * Glossary main module
  * @copyright: Spryker Systems GmbH
  *
  */
