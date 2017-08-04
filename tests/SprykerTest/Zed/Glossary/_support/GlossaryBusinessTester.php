@@ -18,10 +18,10 @@ use Codeception\Actor;
  *
  * @SuppressWarnings(PHPMD)
  */
-class BusinessTester extends Actor
+class GlossaryBusinessTester extends Actor
 {
 
-    use _generated\BusinessTesterActions;
+    use _generated\GlossaryBusinessTesterActions;
 
    /**
     * Define custom actions here
