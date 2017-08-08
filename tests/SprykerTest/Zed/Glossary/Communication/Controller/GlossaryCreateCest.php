@@ -5,9 +5,9 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\Glossary\Presentation;
+namespace SprykerTest\Zed\Glossary\Communication\Controller;
 
-use SprykerTest\Zed\Glossary\GlossaryPresentationTester;
+use SprykerTest\Zed\Glossary\GlossaryCommunicationTester;
 use SprykerTest\Zed\Glossary\PageObject\GlossaryCreatePage;
 
 /**
@@ -15,7 +15,8 @@ use SprykerTest\Zed\Glossary\PageObject\GlossaryCreatePage;
  * @group SprykerTest
  * @group Zed
  * @group Glossary
- * @group Presentation
+ * @group Communication
+ * @group Controller
  * @group GlossaryCreateCest
  * Add your own group annotations below this line
  */
@@ -23,14 +24,13 @@ class GlossaryCreateCest
 {
 
     /**
-     * @param \SprykerTest\Zed\Glossary\GlossaryPresentationTester $i
+     * @param \SprykerTest\Zed\Glossary\GlossaryCommunicationTester $i
      *
      * @return void
      */
-    public function breadcrumbIsVisible(GlossaryPresentationTester $i)
+    public function breadcrumbIsVisible(GlossaryCommunicationTester $i)
     {
         $i->amOnPage(GlossaryCreatePage::URL);
-
         $i->seeBreadcrumbNavigation('Dashboard / Glossary / Add Glossary Translation');
     }
 
