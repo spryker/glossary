@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\Glossary\Communication\Controller;
+namespace SprykerTest\Zed\Glossary\Communication;
 
 use SprykerTest\Zed\Glossary\GlossaryCommunicationTester;
 
@@ -16,7 +16,6 @@ use SprykerTest\Zed\Glossary\GlossaryCommunicationTester;
  * @group Zed
  * @group Glossary
  * @group Communication
- * @group Controller
  * @group IndexControllerCest
  * Add your own group annotations below this line
  */
