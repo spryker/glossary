@@ -30,11 +30,15 @@ class GlossaryConfig extends AbstractBundleConfig
      */
     public function getGlossaryFilePaths()
     {
-        /** @var array<string> $sourceGlossary */
         $sourceGlossary = glob(APPLICATION_SOURCE_DIR . '/*/*/*/Resources/glossary.yml', GLOB_NOSORT);
+        if ($sourceGlossary === false) {
+            $sourceGlossary = [];
+        }
 
-        /** @var array<string> $vendorGlossary */
         $vendorGlossary = glob(APPLICATION_VENDOR_DIR . '/*/*/src/*/*/*/Resources/glossary.yml', GLOB_NOSORT);
+        if ($vendorGlossary === false) {
+            $vendorGlossary = [];
+        }
 
         $paths = array_merge(
             $sourceGlossary,
