@@ -23,11 +23,6 @@ use SprykerTest\Zed\Glossary\PageObject\GlossaryListPage;
  */
 class GlossaryEditCest
 {
-    /**
-     * @param \SprykerTest\Zed\Glossary\GlossaryCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbIsVisible(GlossaryCommunicationTester $i): void
     {
         $i->listDataTable(GlossaryListPage::URL . '/index/table');

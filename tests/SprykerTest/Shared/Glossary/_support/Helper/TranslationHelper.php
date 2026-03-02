@@ -15,11 +15,6 @@ class TranslationHelper extends Module
 {
     use LocatorHelperTrait;
 
-    /**
-     * @param array $override
-     *
-     * @return int
-     */
     public function haveTranslation(array $override = []): int
     {
         $keyTranslationTransfer = (new KeyTranslationBuilder($override))->build();

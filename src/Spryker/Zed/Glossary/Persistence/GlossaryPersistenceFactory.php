@@ -35,9 +35,6 @@ class GlossaryPersistenceFactory extends AbstractPersistenceFactory
         return SpyGlossaryKeyQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\Glossary\Persistence\Propel\Mapper\GlossaryMapper
-     */
     public function createGlossaryMapper(): GlossaryMapper
     {
         return new GlossaryMapper();

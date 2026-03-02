@@ -47,9 +47,6 @@ class GlossaryTest extends Unit
      */
     protected $touchQueryContainer;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -60,9 +57,6 @@ class GlossaryTest extends Unit
         $this->glossaryFacade = new GlossaryFacade();
     }
 
-    /**
-     * @return void
-     */
     public function testCreateKeyInsertsSomething(): void
     {
         $keyQuery = $this->glossaryQueryContainer->queryKeys();
@@ -73,9 +67,6 @@ class GlossaryTest extends Unit
         $this->assertTrue($keyCountAfterCreation > $keyCountBeforeCreation);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateKeyMustSaveNewKeyInDatabase(): void
     {
         $keyQuery = $this->glossaryQueryContainer->queryKeys();
@@ -86,18 +77,12 @@ class GlossaryTest extends Unit
         $this->assertSame('ATestKey3', $keyQuery->findPk($keyId)->getKey());
     }
 
-    /**
-     * @return void
-     */
     public function testHasKeyReturnsRightValue(): void
     {
         $this->glossaryFacade->createKey('SomeNewKey');
         $this->assertTrue($this->glossaryFacade->hasKey('SomeNewKey'));
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteKeyDeletesSomething(): void
     {
         $specificKeyQuery = $this->glossaryQueryContainer->queryKey('KeyToBeDeleted');
@@ -110,9 +95,6 @@ class GlossaryTest extends Unit
         $this->assertFalse($specificKeyQuery->findOne()->getIsActive());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateTranslationInsertsSomething(): void
     {
         $translationQuery = $this->glossaryQueryContainer->queryTranslations();
@@ -126,9 +108,6 @@ class GlossaryTest extends Unit
         $this->assertTrue($translationCountAfterCreation > $translationCountBeforeCreation);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAndTouchTranslationInsertsSomethingAndTouchesIt(): void
     {
         $translationQuery = $this->glossaryQueryContainer->queryTranslations();
@@ -146,9 +125,6 @@ class GlossaryTest extends Unit
         $this->assertTrue($touchCountAfterCreation > $touchCountBeforeCreation);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateTranslationUpdatesSomething(): void
     {
         $locale = $this->localeFacade->createLocale('Local');
@@ -164,9 +140,6 @@ class GlossaryTest extends Unit
         $this->assertSame('Some other Translation', $specificTranslationQuery->findOne()->getValue());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateAndTouchTranslationUpdatesSomethingAndTouchesIt(): void
     {
         $locale = $this->localeFacade->createLocale('Locaz');
@@ -185,9 +158,6 @@ class GlossaryTest extends Unit
         $this->assertTrue($touchCountAfterCreation > $touchCountBeforeCreation);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteTranslationDeletesSoftly(): void
     {
         $locale = $this->localeFacade->createLocale('yx_qw');
@@ -201,9 +171,6 @@ class GlossaryTest extends Unit
         $this->assertFalse($specificTranslationQuery->findOne()->getIsActive());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveTranslationDoesACreate(): void
     {
         $keyId = $this->glossaryFacade->createKey('SomeNonExistentKey');
@@ -224,9 +191,6 @@ class GlossaryTest extends Unit
         $this->assertNotNull($transferTranslation->getIdGlossaryTranslation());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveTranslationDoesAnUpdate(): void
     {
         $keyId = $this->glossaryFacade->createKey('SomeNonExistentKey2');
@@ -248,9 +212,6 @@ class GlossaryTest extends Unit
         $this->assertSame('someOtherTranslation', $specificTranslationQuery->findOne()->getValue());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveAndTouchTranslationDoesATouchForCreation(): void
     {
         $keyId = $this->glossaryFacade->createKey('SomeNonExistentKey3');
@@ -276,9 +237,6 @@ class GlossaryTest extends Unit
         $this->assertTrue($touchCountAfterCreation > $touchCountBeforeCreation);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveAndTouchTranslationDoesATouchForUpdate(): void
     {
         $keyId = $this->glossaryFacade->createKey('SomeNonExistentKey4');
@@ -300,9 +258,6 @@ class GlossaryTest extends Unit
         $this->assertTrue($touchCountAfterCreation > $touchCountBeforeCreation);
     }
 
-    /**
-     * @return void
-     */
     public function testCreatingTranslationForCurrentLocaleInsertsSomething(): void
     {
         $translationQuery = $this->glossaryQueryContainer->queryTranslations();
@@ -317,9 +272,6 @@ class GlossaryTest extends Unit
         $this->assertNotNull($translation->getIdGlossaryTranslation());
     }
 
-    /**
-     * @return void
-     */
     public function testTouchTranslationForKeyAndCurrentLocale(): void
     {
         $keyId = $this->glossaryFacade->createKey('SomeNonExistentKey6');
@@ -342,9 +294,6 @@ class GlossaryTest extends Unit
         $this->assertTrue($touchCountAfterCreation > $touchCountBeforeCreation);
     }
 
-    /**
-     * @return void
-     */
     public function testTouchTranslationForKeyAndCustomLocale(): void
     {
         $keyId = $this->glossaryFacade->createKey('SomeNonExistentKey7');

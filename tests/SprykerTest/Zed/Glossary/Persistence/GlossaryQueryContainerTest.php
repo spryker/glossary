@@ -50,9 +50,6 @@ class GlossaryQueryContainerTest extends Unit
      */
     protected $glossaryQueryContainer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -62,9 +59,6 @@ class GlossaryQueryContainerTest extends Unit
         $this->glossaryQueryContainer->setFactory($glossaryPersistenceFactory);
     }
 
-    /**
-     * @return void
-     */
     public function testQueryGlossaryKeyTranslationsByLocaleReturnsCorrectData(): void
     {
         //Arrange
@@ -87,9 +81,6 @@ class GlossaryQueryContainerTest extends Unit
         $this->assertEmpty(array_diff($localeNames, array_column($result, GlossaryQueryContainer::LOCALE)));
     }
 
-    /**
-     * @return void
-     */
     public function testQueryKeysAndTranslationsForEachLanguageReturnsCorrectData(): void
     {
         $localeTransfer1 = $this->tester->haveLocale([LocaleTransfer::LOCALE_NAME => static::TEST_LOCALE_1]);

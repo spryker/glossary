@@ -76,13 +76,6 @@ class TranslationManager implements TranslationManagerInterface
      */
     protected $messengerFacade;
 
-    /**
-     * @param \Spryker\Zed\Glossary\Persistence\GlossaryQueryContainerInterface $glossaryQueryContainer
-     * @param \Spryker\Zed\Glossary\Dependency\Facade\GlossaryToTouchInterface $touchFacade
-     * @param \Spryker\Zed\Glossary\Dependency\Facade\GlossaryToLocaleInterface $localeFacade
-     * @param \Spryker\Zed\Glossary\Business\Key\KeyManagerInterface $keyManager
-     * @param \Spryker\Zed\Glossary\Dependency\Facade\GlossaryToMessengerInterface $messengerFacade
-     */
     public function __construct(
         GlossaryQueryContainerInterface $glossaryQueryContainer,
         GlossaryToTouchInterface $touchFacade,
@@ -577,14 +570,6 @@ class TranslationManager implements TranslationManagerInterface
         return $this->doUpdateAndTouchTranslation($translation);
     }
 
-    /**
-     * @param string $keyName
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param string $value
-     * @param bool $isActive
-     *
-     * @return \Generated\Shared\Transfer\TranslationTransfer
-     */
     protected function executeCreateAndTouchTranslationTransaction(
         string $keyName,
         LocaleTransfer $localeTransfer,
@@ -629,11 +614,6 @@ class TranslationManager implements TranslationManagerInterface
         });
     }
 
-    /**
-     * @param \Orm\Zed\Glossary\Persistence\SpyGlossaryTranslation $translation
-     *
-     * @return \Generated\Shared\Transfer\TranslationTransfer
-     */
     protected function executeUpdateAndTouchTranslationTransaction(SpyGlossaryTranslation $translation): TranslationTransfer
     {
         $isActiveModified = $translation->isColumnModified(SpyGlossaryTranslationTableMap::COL_IS_ACTIVE);
@@ -728,11 +708,6 @@ class TranslationManager implements TranslationManagerInterface
         return $translation;
     }
 
-    /**
-     * @param string $translationValue
-     *
-     * @return bool
-     */
     protected function isTranslationValueValid(string $translationValue): bool
     {
         return $translationValue

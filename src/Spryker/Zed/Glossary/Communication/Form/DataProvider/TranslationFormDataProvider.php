@@ -20,9 +20,6 @@ class TranslationFormDataProvider
      */
     protected $glossaryQueryContainer;
 
-    /**
-     * @param \Spryker\Zed\Glossary\Persistence\GlossaryQueryContainerInterface $glossaryQueryContainer
-     */
     public function __construct(GlossaryQueryContainerInterface $glossaryQueryContainer)
     {
         $this->glossaryQueryContainer = $glossaryQueryContainer;

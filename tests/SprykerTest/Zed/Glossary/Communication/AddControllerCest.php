@@ -22,11 +22,6 @@ use SprykerTest\Zed\Glossary\GlossaryCommunicationTester;
  */
 class AddControllerCest
 {
-    /**
-     * @param \SprykerTest\Zed\Glossary\GlossaryCommunicationTester $i
-     *
-     * @return void
-     */
     public function addTranslation(GlossaryCommunicationTester $i): void
     {
         $keyTranslationTransfer = (new KeyTranslationBuilder())->build();
@@ -43,11 +38,6 @@ class AddControllerCest
         $i->amOnPage('/glossary');
     }
 
-    /**
-     * @param \SprykerTest\Zed\Glossary\GlossaryCommunicationTester $i
-     *
-     * @return void
-     */
     public function addTranslationWithoutTranslations(GlossaryCommunicationTester $i): void
     {
         $keyTranslationTransfer = (new KeyTranslationBuilder())->build();

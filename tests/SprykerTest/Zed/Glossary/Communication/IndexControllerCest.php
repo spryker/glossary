@@ -21,11 +21,6 @@ use SprykerTest\Zed\Glossary\GlossaryCommunicationTester;
  */
 class IndexControllerCest
 {
-    /**
-     * @param \SprykerTest\Zed\Glossary\GlossaryCommunicationTester $i
-     *
-     * @return void
-     */
     public function listTranslations(GlossaryCommunicationTester $i): void
     {
         $i->amOnPage('/glossary');

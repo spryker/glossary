@@ -57,9 +57,6 @@ class TranslationTableQueryTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -67,9 +64,6 @@ class TranslationTableQueryTest extends Unit
         $this->registerTwigServiceMock();
     }
 
-    /**
-     * @return void
-     */
     public function testFetchDataCollectsCorrectGlossaryData(): void
     {
         // Arrange
@@ -102,9 +96,6 @@ class TranslationTableQueryTest extends Unit
         $this->assertContains($idGlossaryKey2, $resultGlossaryKeyIds);
     }
 
-    /**
-     * @return void
-     */
     protected function registerTwigServiceMock(): void
     {
         $this->tester->getContainer()->set(static::SERVICE_TWIG, $this->getTwigMock());
@@ -125,9 +116,6 @@ class TranslationTableQueryTest extends Unit
         return $twigMock;
     }
 
-    /**
-     * @return \Twig\Loader\LoaderInterface
-     */
     protected function getChainLoader(): LoaderInterface
     {
         return new ChainLoader();

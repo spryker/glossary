@@ -32,11 +32,6 @@ class GlossaryInstaller implements GlossaryInstallerInterface
      */
     protected $paths;
 
-    /**
-     * @param \Spryker\Zed\Glossary\Business\Translation\TranslationManagerInterface $translationManager
-     * @param \Spryker\Zed\Glossary\Business\Key\KeyManagerInterface $keyManager
-     * @param array $paths
-     */
     public function __construct(
         TranslationManagerInterface $translationManager,
         KeyManagerInterface $keyManager,
@@ -90,11 +85,6 @@ class GlossaryInstaller implements GlossaryInstallerInterface
         });
     }
 
-    /**
-     * @param array $translations
-     *
-     * @return array
-     */
     protected function executeInstallKeysAndTranslationsTransaction(array $translations): array
     {
         $results = [];

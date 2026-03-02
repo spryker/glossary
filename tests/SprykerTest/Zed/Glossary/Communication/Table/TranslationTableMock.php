@@ -26,9 +26,6 @@ class TranslationTableMock extends TranslationTable
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function fetchData(): array
     {
         return $this->init()->prepareData($this->config);

@@ -86,17 +86,11 @@ class GlossaryBusinessFactory extends AbstractBusinessFactory
         return $installer;
     }
 
-    /**
-     * @return \Spryker\Zed\Glossary\Business\Reader\TranslationReaderInterface
-     */
     public function createTranslationReader(): TranslationReaderInterface
     {
         return new TranslationReader($this->getRepository());
     }
 
-    /**
-     * @return \Spryker\Zed\Glossary\Business\Key\KeyReaderInterface
-     */
     public function createGlossaryKeyReader(): KeyReaderInterface
     {
         return new KeyReader($this->getRepository());

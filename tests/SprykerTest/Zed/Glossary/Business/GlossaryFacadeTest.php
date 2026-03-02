@@ -51,9 +51,6 @@ class GlossaryFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -61,35 +58,21 @@ class GlossaryFacadeTest extends Unit
         $this->getAvailableLocales();
     }
 
-    /**
-     * @return void
-     */
     private function getAvailableLocales(): void
     {
         $this->locales = $this->getLocaleFacade()->getAvailableLocales();
     }
 
-    /**
-     * @return \Spryker\Zed\Locale\Business\LocaleFacade
-     */
     private function getLocaleFacade(): LocaleFacade
     {
         return new LocaleFacade();
     }
 
-    /**
-     * @return \Spryker\Zed\Glossary\Business\GlossaryFacade
-     */
     private function getGlossaryFacade(): GlossaryFacade
     {
         return new GlossaryFacade();
     }
 
-    /**
-     * @param array $locales
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer
-     */
     private function buildLocaleTransferObject(array $locales): LocaleTransfer
     {
         $locale = new LocaleTransfer();
@@ -100,9 +83,6 @@ class GlossaryFacadeTest extends Unit
         return $locale;
     }
 
-    /**
-     * @return void
-     */
     public function testAddTranslation(): void
     {
         $glossaryFacade = $this->getGlossaryFacade();
@@ -121,9 +101,6 @@ class GlossaryFacadeTest extends Unit
         $this->assertTrue($action);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateTranslation(): void
     {
         $glossaryFacade = $this->getGlossaryFacade();
@@ -157,9 +134,6 @@ class GlossaryFacadeTest extends Unit
         $this->assertNotSame($translatedKey->getValue(), $translatedKeyChanged->getValue());
     }
 
-    /**
-     * @return void
-     */
     public function testAddTranslationWithZeroValueSuccess(): void
     {
         // Arrange
@@ -197,9 +171,6 @@ class GlossaryFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testTranslationsCanBeFoundInBulk(): void
     {
         // Arrange
@@ -219,9 +190,6 @@ class GlossaryFacadeTest extends Unit
         $this->assertCount(count($localeTransfers), $translations);
     }
 
-    /**
-     * @return void
-     */
     public function testTranslationsCanBeFoundInBuGlossaryKeysAndLocaleTransfers(): void
     {
         // Arrange
@@ -246,9 +214,6 @@ class GlossaryFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testGlossaryKeyTransfersCanBeFoundByGlossaryKeysInBulk(): void
     {
         // Arrange

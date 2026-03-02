@@ -51,11 +51,6 @@ class TranslationTable extends AbstractTable
      */
     protected $locales;
 
-    /**
-     * @param \Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery $glossaryKeyQuery
-     * @param \Orm\Zed\Glossary\Persistence\SpyGlossaryTranslationQuery $subGlossaryKey
-     * @param array $locales
-     */
     public function __construct(SpyGlossaryKeyQuery $glossaryKeyQuery, SpyGlossaryTranslationQuery $subGlossaryKey, array $locales)
     {
         $this->glossaryKeyQuery = $glossaryKeyQuery;

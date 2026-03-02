@@ -23,11 +23,6 @@ use SprykerTest\Zed\Glossary\PageObject\GlossaryCreatePage;
  */
 class GlossaryCreateCest
 {
-    /**
-     * @param \SprykerTest\Zed\Glossary\GlossaryCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbIsVisible(GlossaryCommunicationTester $i): void
     {
         $i->amOnPage(GlossaryCreatePage::URL);

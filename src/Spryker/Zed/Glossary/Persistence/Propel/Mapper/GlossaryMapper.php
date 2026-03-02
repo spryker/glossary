@@ -14,12 +14,6 @@ use Orm\Zed\Glossary\Persistence\SpyGlossaryTranslation;
 
 class GlossaryMapper
 {
-    /**
-     * @param \Orm\Zed\Glossary\Persistence\SpyGlossaryTranslation $glossaryTranslationEntity
-     * @param \Generated\Shared\Transfer\TranslationTransfer $translationTransfer
-     *
-     * @return \Generated\Shared\Transfer\TranslationTransfer
-     */
     public function mapGlossaryTranslationEntityToTranslationTransfer(
         SpyGlossaryTranslation $glossaryTranslationEntity,
         TranslationTransfer $translationTransfer
@@ -33,12 +27,6 @@ class GlossaryMapper
             ->setGlossaryKey($glossaryKeyTransfer);
     }
 
-    /**
-     * @param \Orm\Zed\Glossary\Persistence\SpyGlossaryKey $glossaryKeyEntity
-     * @param \Generated\Shared\Transfer\GlossaryKeyTransfer $glossaryKeyTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlossaryKeyTransfer
-     */
     public function mapGlossaryKeyEntityToGlossaryKeyTransfer(
         SpyGlossaryKey $glossaryKeyEntity,
         GlossaryKeyTransfer $glossaryKeyTransfer

@@ -22,11 +22,6 @@ use SprykerTest\Zed\Glossary\GlossaryCommunicationTester;
  */
 class EditControllerCest
 {
-    /**
-     * @param \SprykerTest\Zed\Glossary\GlossaryCommunicationTester $i
-     *
-     * @return void
-     */
     public function editTranslation(GlossaryCommunicationTester $i): void
     {
         $formData = [
