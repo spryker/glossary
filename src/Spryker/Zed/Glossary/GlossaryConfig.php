@@ -12,6 +12,8 @@ use Spryker\Zed\Kernel\AbstractBundleConfig;
 class GlossaryConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * Used as `item_type` for touch mechanism.
      *
      * @var string
