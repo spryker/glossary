@@ -168,14 +168,14 @@ class TranslationForm extends AbstractType
     {
         $constraints = $this->getFieldDefaultConstraints();
 
-        $constraints[] = new Callback([
-            'callback' => function ($glossaryKey, ExecutionContextInterface $contextInterface) {
+        $constraints[] = new Callback(
+            callback: function ($glossaryKey, ExecutionContextInterface $contextInterface) {
                 if ($this->getFacade()->hasKey($glossaryKey)) {
                     $contextInterface->addViolation('Translation key already exists.');
                 }
             },
-            'groups' => [static::GROUP_UNIQUE_GLOSSARY_KEY_CHECK],
-        ]);
+            groups: [static::GROUP_UNIQUE_GLOSSARY_KEY_CHECK],
+        );
 
         return $constraints;
     }
