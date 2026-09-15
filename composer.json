@@ -20,6 +20,7 @@
         "spryker/util-text": "^1.1.0"
     },
     "require-dev": {
+        "spryker/api-platform": "*",
         "spryker/application": "*",
         "spryker/code-sniffer": "*",
         "spryker/container": "*",
@@ -35,6 +36,7 @@
         "spryker/zed-navigation": "*"
     },
     "suggest": {
+        "spryker/api-platform": "Required to expose the glossary-keys Backend API resource; without it the resource schema is never discovered.",
         "spryker/installer": "If you want to use Installer plugins.",
         "spryker/twig": "If you want to use Twig with Gui."
     },

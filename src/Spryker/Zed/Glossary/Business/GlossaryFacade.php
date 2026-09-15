@@ -7,6 +7,8 @@
 
 namespace Spryker\Zed\Glossary\Business;
 
+use Generated\Shared\Transfer\GlossaryKeyCollectionTransfer;
+use Generated\Shared\Transfer\GlossaryKeyCriteriaTransfer;
 use Generated\Shared\Transfer\KeyTranslationTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\TranslationTransfer;
@@ -18,6 +20,18 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
  */
 class GlossaryFacade extends AbstractFacade implements GlossaryFacadeInterface
 {
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     */
+    public function getGlossaryKeyCollection(GlossaryKeyCriteriaTransfer $glossaryKeyCriteriaTransfer): GlossaryKeyCollectionTransfer
+    {
+        return $this->getFactory()
+            ->createGlossaryKeyReader()
+            ->getGlossaryKeyCollection($glossaryKeyCriteriaTransfer);
+    }
+
     /**
      * {@inheritDoc}
      *

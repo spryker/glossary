@@ -25,6 +25,8 @@ class GlossaryConfig extends AbstractBundleConfig
      */
     protected const REDIRECT_URL_DEFAULT = '/glossary';
 
+    protected const int GLOSSARY_KEY_COLLECTION_DEFAULT_LIMIT = 100;
+
     /**
      * @api
      *
@@ -58,5 +60,16 @@ class GlossaryConfig extends AbstractBundleConfig
     public function getDefaultRedirectUrl(): string
     {
         return static::REDIRECT_URL_DEFAULT;
+    }
+
+    /**
+     * Specification:
+     * - Returns the number of glossary keys `GlossaryFacade::getGlossaryKeyCollection()` returns when the criteria carry no pagination limit.
+     *
+     * @api
+     */
+    public function getGlossaryKeyCollectionDefaultLimit(): int
+    {
+        return static::GLOSSARY_KEY_COLLECTION_DEFAULT_LIMIT;
     }
 }

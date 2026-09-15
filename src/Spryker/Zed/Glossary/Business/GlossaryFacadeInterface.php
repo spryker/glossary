@@ -7,12 +7,27 @@
 
 namespace Spryker\Zed\Glossary\Business;
 
+use Generated\Shared\Transfer\GlossaryKeyCollectionTransfer;
+use Generated\Shared\Transfer\GlossaryKeyCriteriaTransfer;
 use Generated\Shared\Transfer\KeyTranslationTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\TranslationTransfer;
 
 interface GlossaryFacadeInterface
 {
+    /**
+     * Specification:
+     * - Retrieves glossary keys with all their translations (active and inactive) from Persistence.
+     * - Filters by `GlossaryKeyConditions.keys` (case-insensitive match), `GlossaryKeyConditions.keyFragment`
+     *   (case-insensitive substring of the key) and `GlossaryKeyConditions.translationValueFragment`
+     *   (case-insensitive substring of an active translation in any locale).
+     * - Sorts by `GlossaryKeyCriteria.sortCollection`; the only supported field is `GlossaryKeyTransfer::KEY`, unknown fields are ignored.
+     * - Paginates by `GlossaryKeyCriteria.pagination`: a missing `offset` defaults to 0, a missing `pagination` or `limit` falls back to `GlossaryConfig::getGlossaryKeyCollectionDefaultLimit()`; sets `Pagination.nbResults` and the applied `limit`/`offset`, and returns it in `GlossaryKeyCollection.pagination`.
+     *
+     * @api
+     */
+    public function getGlossaryKeyCollection(GlossaryKeyCriteriaTransfer $glossaryKeyCriteriaTransfer): GlossaryKeyCollectionTransfer;
+
     /**
      * Specification:
      * - TODO: Add method specification.

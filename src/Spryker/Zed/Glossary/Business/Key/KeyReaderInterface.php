@@ -7,8 +7,13 @@
 
 namespace Spryker\Zed\Glossary\Business\Key;
 
+use Generated\Shared\Transfer\GlossaryKeyCollectionTransfer;
+use Generated\Shared\Transfer\GlossaryKeyCriteriaTransfer;
+
 interface KeyReaderInterface
 {
+    public function getGlossaryKeyCollection(GlossaryKeyCriteriaTransfer $glossaryKeyCriteriaTransfer): GlossaryKeyCollectionTransfer;
+
     /**
      * @param array<string> $glossaryKeys
      *

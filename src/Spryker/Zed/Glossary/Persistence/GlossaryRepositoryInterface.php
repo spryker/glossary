@@ -7,8 +7,13 @@
 
 namespace Spryker\Zed\Glossary\Persistence;
 
+use Generated\Shared\Transfer\GlossaryKeyCollectionTransfer;
+use Generated\Shared\Transfer\GlossaryKeyCriteriaTransfer;
+
 interface GlossaryRepositoryInterface
 {
+    public function getGlossaryKeyCollection(GlossaryKeyCriteriaTransfer $glossaryKeyCriteriaTransfer): GlossaryKeyCollectionTransfer;
+
     /**
      * @param string $glossaryKey
      * @param array $localeIsoCodes

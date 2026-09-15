@@ -28,6 +28,35 @@
         <property name="idGlossaryKey" type="int"/>
         <property name="isActive" type="bool"/>
         <property name="key" type="string"/>
+        <property name="translations" type="Translation[]" singular="translation" strict="true"/>
+    </transfer>
+
+    <transfer name="GlossaryKeyCriteria" strict="true">
+        <property name="glossaryKeyConditions" type="GlossaryKeyConditions"/>
+        <property name="sortCollection" type="Sort[]" singular="sort"/>
+        <property name="pagination" type="Pagination"/>
+    </transfer>
+
+    <transfer name="GlossaryKeyConditions" strict="true">
+        <property name="keys" type="string[]" singular="key"/>
+        <property name="keyFragment" type="string"/>
+        <property name="translationValueFragment" type="string"/>
+    </transfer>
+
+    <transfer name="GlossaryKeyCollection" strict="true">
+        <property name="glossaryKeys" type="GlossaryKey[]" singular="glossaryKey"/>
+        <property name="pagination" type="Pagination"/>
+    </transfer>
+
+    <transfer name="Sort">
+        <property name="field" type="string"/>
+        <property name="isAscending" type="bool"/>
+    </transfer>
+
+    <transfer name="Pagination">
+        <property name="limit" type="int"/>
+        <property name="offset" type="int"/>
+        <property name="nbResults" type="int"/>
     </transfer>
 
     <transfer name="AclEntityMetadataConfig">

@@ -7,10 +7,17 @@
 
 namespace Spryker\Zed\Glossary\Business\Key;
 
+use Generated\Shared\Transfer\GlossaryKeyCollectionTransfer;
+use Generated\Shared\Transfer\GlossaryKeyCriteriaTransfer;
 use Spryker\Zed\Glossary\Persistence\GlossaryRepositoryInterface;
 
 class KeyReader implements KeyReaderInterface
 {
+    public function getGlossaryKeyCollection(GlossaryKeyCriteriaTransfer $glossaryKeyCriteriaTransfer): GlossaryKeyCollectionTransfer
+    {
+        return $this->glossaryRepository->getGlossaryKeyCollection($glossaryKeyCriteriaTransfer);
+    }
+
     /**
      * @var \Spryker\Zed\Glossary\Persistence\GlossaryRepositoryInterface
      */

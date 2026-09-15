@@ -1,0 +1,181 @@
+resource:
+    name: GlossaryKeys
+    shortName: glossary-keys
+    description: 'Glossary keys and their translations'
+
+    provider: Spryker\Glue\Glossary\Api\Backend\Provider\GlossaryKeysBackendProvider
+    processor: Spryker\Glue\Glossary\Api\Backend\Processor\GlossaryKeysBackendProcessor
+
+    paginationEnabled: true
+    paginationItemsPerPage: 10
+    paginationMaximumItemsPerPage: 100
+
+    security: "is_granted('ROLE_BACK_OFFICE_USER')"
+
+    operations:
+        - type: GetCollection
+          description: >-
+              Glossary keys, each with one `translations` entry per configured locale. Ordered by
+              `key` ascending; `sort=key` / `sort=-key`. Filters: `filter[glossary-keys.key]` — keys
+              containing the fragment (case-insensitive); `filter[glossary-keys.value]` — keys with at
+              least one active translation containing the fragment, in any locale. Filters combine
+              with AND.
+          normalizationContext:
+              skip_null_values: false
+          openapiContext:
+              summary: 'List glossary keys'
+              parameters:
+                  - name: 'sort'
+                    in: query
+                    required: false
+                    description: 'Sort by key, prefix with `-` for descending order.'
+                    schema:
+                        type: string
+                        enum: [key, -key]
+                    example: '-key'
+                  - name: 'filter[glossary-keys.key]'
+                    in: query
+                    required: false
+                    description: 'Return only the keys containing this fragment (case-insensitive).'
+                    schema:
+                        type: string
+                    example: 'general.'
+                  - name: 'filter[glossary-keys.value]'
+                    in: query
+                    required: false
+                    description: 'Return only the keys with at least one active translation containing this fragment, in any locale (case-insensitive).'
+                    schema:
+                        type: string
+                    example: 'Willkommen'
+              responses:
+                  200:
+                      description: 'Glossary keys returned.'
+                  400:
+                      description: 'Unsupported sort field.'
+                  401:
+                      description: 'Invalid or expired access token.'
+                  403:
+                      description: 'The operator has no ACL access to this resource.'
+
+        - type: Get
+          description: 'A glossary key with one `translations` entry per configured locale.'
+          uriTemplate: '/glossary-keys/{key}'
+          uriVariables:
+              key: { identifiers: [key] }
+          requirements:
+              key: '.+'
+          normalizationContext:
+              skip_null_values: false
+          openapiContext:
+              summary: 'Retrieve a glossary key'
+              responses:
+                  200:
+                      description: 'Glossary key returned.'
+                  401:
+                      description: 'Invalid or expired access token.'
+                  403:
+                      description: 'The operator has no ACL access to this resource.'
+                  404:
+                      description: 'Glossary key not found.'
+
+        - type: Post
+          description: >-
+              Create a glossary key. `translations` may cover any subset of the configured locales;
+              every `localeName` must be a configured locale and every `value` a non-empty string.
+          deserialize: true
+          normalizationContext:
+              skip_null_values: false
+          openapiContext:
+              summary: 'Create a glossary key'
+              responses:
+                  201:
+                      description: 'Glossary key created.'
+                  400:
+                      description: 'Malformed request body.'
+                  401:
+                      description: 'Invalid or expired access token.'
+                  403:
+                      description: 'The operator has no ACL access to this resource.'
+                  422:
+                      description: 'Validation failed: the key already exists, an unknown locale, an empty translation value, or a duplicate localeName in `translations`.'
+
+        - type: Patch
+          description: >-
+              Update the `translations` of a glossary key — one or several locales per request.
+              Entries are merged by `localeName`; locales that are not sent stay untouched. A
+              non-empty `value` creates or overwrites the translation of that locale (a removed
+              translation becomes active again). `value: null` removes the translation: the row is
+              kept with an empty text and deactivated, the translation is unpublished and is read
+              back as `value: null`. The empty string is rejected. `key` is immutable.
+          uriTemplate: '/glossary-keys/{key}'
+          uriVariables:
+              key: { identifiers: [key] }
+          requirements:
+              key: '.+'
+          deserialize: true
+          extraProperties:
+              read: false
+          normalizationContext:
+              skip_null_values: false
+          openapiContext:
+              summary: 'Update or remove translations of a glossary key'
+              responses:
+                  200:
+                      description: 'Translations updated; only the locales present in `translations` were applied.'
+                  400:
+                      description: 'Malformed request body.'
+                  401:
+                      description: 'Invalid or expired access token.'
+                  403:
+                      description: 'The operator has no ACL access to this resource.'
+                  404:
+                      description: 'Glossary key not found.'
+                  422:
+                      description: 'Validation failed: an unknown locale, an empty translation value, or a duplicate localeName in `translations`.'
+
+    properties:
+        key:
+            type: string
+            identifier: true
+            writable: true
+            readable: true
+            required: true
+            description: 'The glossary key. Unique, matched case-insensitively, set on POST and immutable afterwards.'
+            openapiContext:
+                example: 'general.welcome'
+
+        translations:
+            type: array
+            writable: true
+            readable: true
+            nullable: true
+            description: >-
+                Translations of the key, one entry per configured locale. On read the list is
+                complete and ordered by `localeName`; a locale without an active translation has
+                `value: null`. On POST any subset of locales may be sent. On PATCH one or several
+                locales are sent and merged by `localeName`.
+            items:
+                type: object
+                properties:
+                    localeName:
+                        type: string
+                        required: true
+                        description: 'A configured locale.'
+                        openapiContext:
+                            example: 'de_DE'
+                    value:
+                        type: string
+                        nullable: true
+                        description: >-
+                            The translated text. On read `null` means no active translation. On POST
+                            a non-empty string. On PATCH a non-empty string creates, overwrites or
+                            reactivates the translation; `null` removes it (the row is kept empty and
+                            deactivated). The empty string is rejected.
+                        openapiContext:
+                            example: 'Willkommen'
+            openapiContext:
+                example:
+                    - localeName: 'de_DE'
+                      value: 'Willkommen'
+                    - localeName: 'en_US'
+                      value: null
